@@ -31,32 +31,35 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 Copyright 2005-2015 Automattic, Inc.
 */
 
+
+//If this file is called directly, then abort!
 defined( 'ABSPATH' ) or die( 'Hey, what are you doing here? You silly human!' );
 
+
+//Require once the composer autoloader
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
 	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 }
 
-define( 'PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-define( 'PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'PLUGIN', plugin_basename( __FILE__ ) );
-
-use Inc\Base\Activate;
-use Inc\Base\Deactivate;
-
-
+/**
+ * The code that runs during plugin activation
+ */
 function activate_cssux_plugin(){
 	Activate::activate();
 }
+register_activation_hook(__FILE__, 'activate_cssux_plugin');
 
+/**
+ * The code that runs during plugin deactivation
+ */
 function deactivate_cssux_plugin(){
 	Deactivate::deactivate();
 }
-
-register_activation_hook(__FILE__, 'activate_cssux_plugin');
 register_deactivation_hook(__FILE__, 'deactivate_cssux_plugin');
 
-
+/**
+ * Initialize all the core classes of the plugin
+ */
 if ( class_exists( 'Inc\\Init' ) ) {
 	Inc\Init::register_services();
 }
