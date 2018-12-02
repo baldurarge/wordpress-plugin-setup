@@ -29,4 +29,9 @@ class AdminCallbacks extends BaseController
         $value = esc_attr( get_option('text_example') );
         echo '<input type="text" class="regular-text-box" name="text_example" value="' . $value . '" placeholder="write something">';
     }
+
+    public function cssuxFirstName(){
+        $value = esc_attr( get_option('first_name') );
+        echo '<input type="text" class="regular-text-box" name="first_name" value="' . $value . '" placeholder="write something">';
+    }
 }

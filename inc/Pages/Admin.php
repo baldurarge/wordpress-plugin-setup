@@ -68,7 +68,11 @@ class Admin extends BaseController
                 'option_group' =>   'cssux_options_group',
                 'option_name' =>    'text_example',
                 'callback' =>       array( $this->callbacks, 'cssuxOptionsGroup')
-            )
+			),
+			array(
+                'option_group' =>   'cssux_options_group',
+                'option_name' =>    'first_name'
+			)
 		);
 
 		$this->settings->setSettings($args);
@@ -99,7 +103,18 @@ class Admin extends BaseController
 					'label_for' => 'text_example',
 					'class' => 'example-class'
 				)
-            )
+				),
+				array(
+					'id' =>   			'first_name',
+					'title' =>			'First Name',
+					'callback' =>		array( $this->callbacks, 'cssuxFirstName'),
+					'page' =>			'cssux_settings',
+					'section' => 		'cssux_admin_index',
+					'args' => 			array(
+						'label_for' => 'first_name',
+						'class' => 'example-class'
+					)
+				)
 		);
 
 		$this->settings->setFields($args);
