@@ -17,21 +17,15 @@ class AdminCallbacks extends BaseController
         return require_once("$this->plugin_path/templates/Settings.php");
     }
 
-    public function cssuxOptionsGroup($input){
-        return $input;
-    }
 
-    public function cssuxAdminSection(){
-        echo 'Checkiout';
-    }
+    public function cssuxCss(){
 
-    public function cssuxTextExample(){
-        $value = esc_attr( get_option('text_example') );
-        echo '<input type="text" class="regular-text-box" name="text_example" value="' . $value . '" placeholder="write something">';
-    }
-
-    public function cssuxFirstName(){
-        $value = esc_attr( get_option('first_name') );
-        echo '<input type="text" class="regular-text-box" name="first_name" value="' . $value . '" placeholder="write something">';
+        $options = get_option('cssux_css');
+        // add_filter($options, 'wpautop');
+        ?>
+        <textarea name="cssux_css" id="cssux_css" cols="30" rows="10">
+            <?php echo $options; ?>
+        </textarea>
+        <?php
     }
 }

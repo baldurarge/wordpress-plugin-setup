@@ -40,7 +40,7 @@ class Admin extends BaseController
 		$this->pages = [
 			[
 			'page_title' => 	'CSS UX',
-			'menu_title' =>		'CSSUX',
+			'menu_title' =>		'CSS',
 			'capability' =>		'manage_options',
 			'menu_slug' => 		'cssux_plugin', 
 			'callback' =>		array( $this->callbacks, 'adminDashboard' ),
@@ -61,17 +61,15 @@ class Admin extends BaseController
 			]
 	];
 	}
-
+/*
+																										HERE THE FIELDS ARE GENERATED
+*/
 	public function setSettings(){
         $args = array(
-            array(
-                'option_group' =>   'cssux_options_group',
-                'option_name' =>    'text_example',
-                'callback' =>       array( $this->callbacks, 'cssuxOptionsGroup')
-			),
 			array(
-                'option_group' =>   'cssux_options_group',
-                'option_name' =>    'first_name'
+                'option_group' =>   'cssux_css_group',
+				'option_name' =>    'cssux_css',
+				'callback' =>       array( $this->callbacks, 'cssuxCssGroup')
 			)
 		);
 
@@ -80,11 +78,10 @@ class Admin extends BaseController
 	
 	public function setSections(){
         $args = array(
-            array(
-                'id' =>   			'cssux_admin_index',
-                'title' =>			'Settings',
-				'callback' =>		array( $this->callbacks, 'cssuxAdminSection'),
-				'page' =>			'cssux_settings'		
+			array(
+                'id' =>   			'cssux_admin_css_index',
+                'title' =>			'',
+				'page' =>			'cssux_plugin'		
             )
 		);
 
@@ -93,27 +90,13 @@ class Admin extends BaseController
 	
 	public function setFields(){
         $args = array(
-            array(
-                'id' =>   			'text_example',
-                'title' =>			'Text Example',
-				'callback' =>		array( $this->callbacks, 'cssuxTextExample'),
-				'page' =>			'cssux_settings',
-				'section' => 		'cssux_admin_index',
-				'args' => 			array(
-					'label_for' => 'text_example',
-					'class' => 'example-class'
-				)
-				),
+
 				array(
-					'id' =>   			'first_name',
-					'title' =>			'First Name',
-					'callback' =>		array( $this->callbacks, 'cssuxFirstName'),
-					'page' =>			'cssux_settings',
-					'section' => 		'cssux_admin_index',
-					'args' => 			array(
-						'label_for' => 'first_name',
-						'class' => 'example-class'
-					)
+					'id' =>   			'cssux_css',
+					'title' =>			'',
+					'callback' =>		array( $this->callbacks, 'cssuxCss'),
+					'page' =>			'cssux_plugin',
+					'section' => 		'cssux_admin_css_index'
 				)
 		);
 

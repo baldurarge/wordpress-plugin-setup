@@ -1,0 +1,79 @@
+#cssuxForm th{
+display: none;
+
+}
+
+.CodeMirror{
+    -webkit-box-shadow: 0px 2px 30px -10px rgba(0,0,0,0.83);
+-moz-box-shadow: 0px 2px 30px -10px rgba(0,0,0,0.83);
+box-shadow: 0px 2px 30px -10px rgba(0,0,0,0.83);
+height: 80vh;
+max-height: 80vh;
+}
+
+
+#cssuxButtonSave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #cssuxButtonSave {
+      margin-left: 10px;
+    width: 80px;
+    height: 40px;
+    background: #393e46;
+    will-change: transform;
+    transition: all 0.2s ease;
+    border: 2px solid #393e46;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    color: #f9f9f9;
+    outline: none;
+    text-align: center;
+      border-radius:4px;
+      -webkit-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.83);
+  -moz-box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.83);
+  box-shadow: 0px 2px 10px -7px rgba(0,0,0,0.83);
+  
+  }
+  #cssuxButtonSave:hover {
+    background: #393e46;
+    color: #fff;
+  }
+  #cssuxButtonSave:active {
+    font-size: 15px;
+    transform: translateY(1px);
+  }
+  #cssuxButtonSave.active {
+    font-size: 0;
+    border-radius: 25px;
+    width: 40px;
+    background: transparent;
+  }
+  #cssuxButtonSave.loader {
+    border-right: 2px solid #fff;
+    animation: loader 0.4s linear infinite;
+  }
+  #cssuxButtonSave.success {
+    background: #00adb5;
+    border-color: #00adb5;
+    font-size: 14px;
+    color: #f9f9f9;
+  }
+  #cssuxButtonSave.error {
+    background: #e23e57;
+    border-color: #e23e57;
+    font-size: 14px;
+    color: #f9f9f9;
+  }
+  @keyframes loader {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+  
+  

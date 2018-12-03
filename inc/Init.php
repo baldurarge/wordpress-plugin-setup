@@ -19,6 +19,13 @@ final class Init
 		];
 	}
 
+	public static function get_public_services()
+	{
+		return [
+			Pages\PublicPage::class
+		];
+	}
+
 	/**
 	 * Loop through the classes, initialize them, 
 	 * and call the register() method if it exists
@@ -27,6 +34,16 @@ final class Init
 	public static function register_services() 
 	{
 		foreach ( self::get_services() as $class ) {
+			$service = self::instantiate( $class );
+			if ( method_exists( $service, 'register' ) ) {
+				$service->register();
+			}
+		}
+	}
+
+	public static function register_public_services() 
+	{
+		foreach ( self::get_public_services() as $class ) {
 			$service = self::instantiate( $class );
 			if ( method_exists( $service, 'register' ) ) {
 				$service->register();

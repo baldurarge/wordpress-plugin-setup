@@ -5,7 +5,7 @@
 /*
 Plugin Name: CSS UX
 Plugin URI: https://bigsheepstudio.dk
-Description: This is my first attempt on writing a custom Plugin for this amazing tutorial series.
+Description: An easy-to-use and beutiful WordPress Plugin to add custom CSS styles that override Plugin and Theme default styles. This plugin is designed to offer a great experience to anyone that would like to add their own CSS to their WordPress website.  Styles created with this plugin will render even if the theme is changed.
 Version: 1.0.0
 Author: Baldur Arge Sveinsson
 Author URI: https://bigsheepstudio.dk
@@ -60,6 +60,14 @@ register_deactivation_hook(__FILE__, 'deactivate_cssux_plugin');
 /**
  * Initialize all the core classes of the plugin
  */
-if ( class_exists( 'Inc\\Init' ) ) {
-	Inc\Init::register_services();
+
+
+if ( ! is_admin() ) {
+	if ( class_exists( 'Inc\\Init' ) ) {
+		Inc\Init::register_public_services();
+	}
+} else{
+	if ( class_exists( 'Inc\\Init' ) ) {
+		Inc\Init::register_services();
+	}
 }
